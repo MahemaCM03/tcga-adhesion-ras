@@ -7,10 +7,10 @@ A Python pipeline that measures how often cell-cell adhesion genes (CDH1, CTNNA1
 ## Key findings
 
 - **CDH1 alterations are strongly found in lobular carcinoma:** 55% of lobular tumors (103/187) vs 4% of non-lobular tumors (36/865); odds ratio 28.2. About 74% of all CDH1-altered tumors are lobular.
-- **No gene pair (adhesion gene and RAS pathway gene) co-occurred or excluded each other significantly** after FDR correction (15 pairs tested, smallest q = 0.10).
-- **No significant association with overall survival** CDH1 alterations were not significantly associated with overall survival in a multivariate Cox model adjusted for age and stage(CDH1 adjusted HR 0.75, 95% CI 0.44 to 1.27, only 18 deaths in the altered group), so only large effects could have been detected.
+- **No pair among the 6 testable genes (adhesion gene and RAS pathway gene pair) co-occurred or excluded each other significantly** after FDR correction (15 pairs tested, smallest q = 0.10).
+- **No significant association with overall survival**: CDH1 alterations were not significantly associated with overall survival in a multivariate Cox model adjusted for age and stage(CDH1 adjusted HR 0.75, 95% CI 0.44 to 1.27, only 18 deaths in the altered group), so only large effects could have been detected.
 - **Alterations changed their own gene's mRNA in the expected direction** (CDH1 and NF1 downregulated, KRAS and NRAS upregulated), which serves as a positive control for the pipeline.
-- **Part of the CDH1 mRNA drop was due to histology.** The difference was -2.83 log2 units in the whole cohort but -0.89 within lobular tumors only. This confirms that *CDH1* loss directly lowers mRNA levels, while a large portion of the cohort-wide drop reflects baseline differences between ductal and lobular tissue.
+- **Part of the CDH1 mRNA drop was due to histology.** The difference was -2.83 log2 units in the whole cohort but -0.89 within lobular tumors only. This suggests that *CDH1* loss directly lowers mRNA levels, while a large portion of the cohort-wide drop reflects baseline differences between ductal and lobular tissue.
 
 ## Why I did this
 
@@ -65,7 +65,7 @@ Lobular vs non-lobular: odds ratio 28.2, Fisher's exact p < 1e-50. This agrees w
 
 ### 3. Co-occurrence
 
-I tested 15 gene pairs; none significant after FDR (smallest q = 0.10, CDH1-NRAS and CTNNA1-NRAS). Some odd ratios were large, but they rested on 2 to 5 tumors with both alterations, so I treat them as unconfirmed.
+No pair among the 6 testable genes were significant after FDR (smallest q = 0.10, CDH1-NRAS and CTNNA1-NRAS). Some odd ratios were large, but they rested on 2 to 5 tumors with both alterations, so I treat them as unconfirmed.
 
 
 ### 4. Survival
@@ -96,10 +96,6 @@ Effect of each gene's alteration on its own mRNA (49 comparisons in total, 9 sig
 - **Histology confounding:** within lobular tumors only (103 CDH1-altered vs 84 unaltered), the CDH1 mRNA difference was -0.89 log2 units (p = 0.009), about a third of the whole-cohort effect. The alteration still lowers CDH1 mRNA, but much of the cohort-wide drop reflects lobular vs ductal differences.
 
 
-### 6. KRAS by molecular subtype (exploratory)
-
-KRAS alteration frequency by PAM50 subtype was 5.3% basal-like, 2.6% HER2-enriched, 1.4% luminal A, 1.0% luminal B and 0% normal-like. [EDIT: add the counts and the Fisher's test result before drawing any conclusion.]
-
 ## Key Figures
 
 ### 1. CDH1 Alteration Rate by Histology
@@ -117,8 +113,15 @@ KRAS alteration frequency by PAM50 subtype was 5.3% basal-like, 2.6% HER2-enrich
 - One cohort (TCGA breast cancer) and no external validation.
 - Simplified alteration definition; promoter methylation and fusions are not considered.
 - Overall survival only, with few deaths in some groups.
+- Only observational data
+- Several genes had too few altered tumors to test.
 
+## Next steps
+- Validate against cBioPortal
+- Add more cancer types
+- Test KRAS by subtypes
 
+  
 ## How to run
 
 ```bash
@@ -145,4 +148,4 @@ TCGA PanCancer Atlas data via cBioPortal (Cerami et al., 2012; Gao et al., 2013)
 
 ## Author
 
-Mahema CM | MTech Bioengineering | linkedin.com/in/mahemacm | mahema2209@gmail.com
+Mahema CM | MTech Bioengineering | linkedin.com/in/mahemacm 
