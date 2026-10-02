@@ -1,0 +1,15 @@
+# Raw data files (large datasets from cBioPortal)
+data/raw/
+
+# Python cache & environments
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/
+
+# IDE & system settings
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
